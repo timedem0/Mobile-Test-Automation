@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.1 (Python 3.7.5 on win32)" generated="20200906 13:57:26.228" rpa="false">
+<suite id="s1" name="Authentication" source="C:\Users\tnica\Desktop\Thesis\mobile-testing\authentication.robot">
+<kw name="Start Application And Verify Welcome Page Is Displayed" library="common" type="setup">
+<kw name="Get Desired Capabilities" library="HelperLibrary">
+<assign>
+<var>&amp;{desired_capabilities}</var>
+</assign>
+<msg timestamp="20200906 13:57:26.863" level="INFO">&amp;{desired_capabilities} = { deviceName=Galaxy A20 | platformName=android | platformVersion=9 | automationName=UIAutomator2 | appPackage=com.timedemo.mmproject | appActivity=host.exp.exponent.MainActivity }</msg>
+<status status="PASS" starttime="20200906 13:57:26.854" endtime="20200906 13:57:26.863"></status>
+</kw>
+<kw name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<arguments>
+<arg>${APPIUM_SERVER}</arg>
+<arg>&amp;{desired_capabilities}</arg>
+</arguments>
+<msg timestamp="20200906 13:57:27.871" level="INFO">Could not connect to port 4723 on host 127.0.0.1</msg>
+<msg timestamp="20200906 13:57:27.871" level="INFO">Could not get IP address for host: 127.0.0.1</msg>
+<msg timestamp="20200906 13:57:29.878" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002674F5893C8&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /wd/hub/session</msg>
+<status status="PASS" starttime="20200906 13:57:26.863" endtime="20200906 13:57:44.228"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>${WELCOME_PAGE_TEXT}</arg>
+</arguments>
+<status status="PASS" starttime="20200906 13:57:44.229" endtime="20200906 13:57:48.596"></status>
+</kw>
+<status status="PASS" starttime="20200906 13:57:26.853" endtime="20200906 13:57:48.596"></status>
+</kw>
+<test id="s1-t1" name="It Is Possible To Log In With Correct Credentials">
+<kw name="It Should Be Possible To Log In With Correct Credentials" library="authentication_resource">
+<kw name="Login Using Correct Credentials" library="common">
+<kw name="Login Using Credentials" library="common">
+<arguments>
+<arg>${TEST_USER}</arg>
+<arg>${TEST_PASSWORD}</arg>
+</arguments>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20200906 13:57:48.604" level="INFO">Typing text 'testuser@test.com' into text field '//android.widget.EditText[@password = 'false']'</msg>
+<status status="PASS" starttime="20200906 13:57:48.600" endtime="20200906 13:57:49.853"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200906 13:57:49.858" level="INFO">Typing text 'abcd_1234' into text field '//android.widget.EditText[@password = 'true']'</msg>
+<status status="PASS" starttime="20200906 13:57:49.853" endtime="20200906 13:57:50.968"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${LOG_IN_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200906 13:57:50.971" level="INFO">Clicking element '//android.widget.TextView[contains(@text, 'Log In')]'.</msg>
+<status status="PASS" starttime="20200906 13:57:50.968" endtime="20200906 13:57:51.966"></status>
+</kw>
+<status status="PASS" starttime="20200906 13:57:48.599" endtime="20200906 13:57:51.967"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>${MAIN_MENU_TEXT}</arg>
+</arguments>
+<status status="PASS" starttime="20200906 13:57:51.967" endtime="20200906 13:57:54.031"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${LOG_OUT_BUTTON}</arg>
+</arguments>
+<status status="PASS" starttime="20200906 13:57:54.032" endtime="20200906 13:57:54.330"></status>
+</kw>
+<status status="PASS" starttime="20200906 13:57:48.599" endtime="20200906 13:57:54.331"></status>
+</kw>
+<kw name="Capture Timestamped Screenshot With Test Name" library="HelperLibrary">
+<msg timestamp="20200906 13:57:54.967" level="INFO">Writing C:\Users\tnica\Desktop\Thesis\mobile-testing\output\06-Sep-2020_13-57-54_It_Is_Possible_To_Log_In_With_Correct_Credentials.png as Objective Evicence.</msg>
+<status status="PASS" starttime="20200906 13:57:54.331" endtime="20200906 13:57:54.967"></status>
+</kw>
+<status status="PASS" starttime="20200906 13:57:48.598" endtime="20200906 13:57:54.967"></status>
+</kw>
+<kw name="Log Out" library="common" type="teardown">
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${LOG_OUT_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200906 13:57:54.972" level="INFO">Clicking element '//android.widget.TextView[contains(@text, 'Log Out')]'.</msg>
+<status status="PASS" starttime="20200906 13:57:54.969" endtime="20200906 13:57:55.644"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>${WELCOME_PAGE_TEXT}</arg>
+</arguments>
+<status status="PASS" starttime="20200906 13:57:55.644" endtime="20200906 13:57:56.787"></status>
+</kw>
+<status status="PASS" starttime="20200906 13:57:54.969" endtime="20200906 13:57:56.787"></status>
+</kw>
+<doc>TMT1-AC1
+Is it possible to log into the App using correct credentials?</doc>
+<tags>
+<tag>authentication</tag>
+<tag>TMT-1</tag>
+</tags>
+<status status="PASS" starttime="20200906 13:57:48.597" endtime="20200906 13:57:56.791" critical="yes"></status>
+</test>
+<test id="s1-t2" name="It Is Not Possible To Log In If The Email Was Not Registered">
+<kw name="It Should Not Be Possible To Log In If The Email Was Not Registered" library="authentication_resource">
+<kw name="Login Using Credentials" library="common">
+<arguments>
+<arg>dummy_user@dummy.com</arg>
+<arg>dummy</arg>
+</arguments>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20200906 13:57:56.798" level="INFO">Typing text 'dummy_user@dummy.com' into text field '//android.widget.EditText[@password = 'false']'</msg>
+<status status="PASS" starttime="20200906 13:57:56.795" endtime="20200906 13:57:57.816"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200906 13:57:57.825" level="INFO">Typing text 'dummy' into text field '//android.widget.EditText[@password = 'true']'</msg>
+<status status="PASS" starttime="20200906 13:57:57.817" endtime="20200906 13:57:59.331"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${LOG_IN_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200906 13:57:59.334" level="INFO">Clicking element '//android.widget.TextView[contains(@text, 'Log In')]'.</msg>
+<status status="PASS" starttime="20200906 13:57:59.331" endtime="20200906 13:58:00.345"></status>
+</kw>
+<status status="PASS" starttime="20200906 13:57:56.795" endtime="20200906 13:58:00.346"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>${WELCOME_PAGE_TEXT}</arg>
+</arguments>
+<status status="PASS" starttime="20200906 13:58:00.346" endtime="20200906 13:58:00.641"></status>
+</kw>
+<kw name="Page Should Contain Element" library="AppiumLibrary">
+<doc>Verifies that current page contains `locator` element.</doc>
+<arguments>
+<arg>${BAD_USER_ERROR_MESSAGE}</arg>
+</arguments>
+<msg timestamp="20200906 13:58:01.580" level="INFO">Current page contains element '//android.widget.TextView[contains(@text, 'There is no user record corresponding to this identifier')]'.</msg>
+<status status="PASS" starttime="20200906 13:58:00.642" endtime="20200906 13:58:01.581"></status>
+</kw>
+<kw name="Capture Timestamped Screenshot With Test Name" library="HelperLibrary">
+<msg timestamp="20200906 13:58:01.956" level="INFO">Writing C:\Users\tnica\Desktop\Thesis\mobile-testing\output\06-Sep-2020_13-58-01_It_Is_Not_Possible_To_Log_In_If_The_Email_Was_Not_Registered.png as Objective Evicence.</msg>
+<status status="PASS" starttime="20200906 13:58:01.582" endtime="20200906 13:58:01.956"></status>
+</kw>
+<status status="PASS" starttime="20200906 13:57:56.794" endtime="20200906 13:58:01.957"></status>
+</kw>
+<doc>TMT1-AC2
+Is the user prevented to log into the App with an unregistered email address
+and is there a descriptive error message?</doc>
+<tags>
+<tag>authentication</tag>
+<tag>error_handling</tag>
+<tag>TMT-1</tag>
+</tags>
+<status status="PASS" starttime="20200906 13:57:56.793" endtime="20200906 13:58:01.957" critical="yes"></status>
+</test>
+<test id="s1-t3" name="It Is Not Possible To Log In Using Badly Formatted Email">
+<kw name="It Should Not Be Possible To Log In Using Badly Formatted Email" library="authentication_resource">
+<kw name="Login Using Credentials" library="common">
+<arguments>
+<arg>bad_email</arg>
+<arg>bad_password</arg>
+</arguments>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20200906 13:58:01.964" level="INFO">Typing text 'bad_email' into text field '//android.widget.EditText[@password = 'false']'</msg>
+<status status="PASS" starttime="20200906 13:58:01.961" endtime="20200906 13:58:03.169"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200906 13:58:03.180" level="INFO">Typing text 'bad_password' into text field '//android.widget.EditText[@password = 'true']'</msg>
+<status status="PASS" starttime="20200906 13:58:03.171" endtime="20200906 13:58:04.754"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${LOG_IN_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200906 13:58:04.760" level="INFO">Clicking element '//android.widget.TextView[contains(@text, 'Log In')]'.</msg>
+<status status="PASS" starttime="20200906 13:58:04.754" endtime="20200906 13:58:05.785"></status>
+</kw>
+<status status="PASS" starttime="20200906 13:58:01.961" endtime="20200906 13:58:05.786"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>${WELCOME_PAGE_TEXT}</arg>
+</arguments>
+<status status="PASS" starttime="20200906 13:58:05.786" endtime="20200906 13:58:06.802"></status>
+</kw>
+<kw name="Page Should Contain Element" library="AppiumLibrary">
+<doc>Verifies that current page contains `locator` element.</doc>
+<arguments>
+<arg>${BAD_EMAIL_ERROR_MESSAGE}</arg>
+</arguments>
+<msg timestamp="20200906 13:58:07.238" level="INFO">Current page contains element '//android.widget.TextView[contains(@text, 'The email address is badly formatted')]'.</msg>
+<status status="PASS" starttime="20200906 13:58:06.802" endtime="20200906 13:58:07.238"></status>
+</kw>
+<kw name="Capture Timestamped Screenshot With Test Name" library="HelperLibrary">
+<msg timestamp="20200906 13:58:07.596" level="INFO">Writing C:\Users\tnica\Desktop\Thesis\mobile-testing\output\06-Sep-2020_13-58-07_It_Is_Not_Possible_To_Log_In_Using_Badly_Formatted_Email.png as Objective Evicence.</msg>
+<status status="PASS" starttime="20200906 13:58:07.238" endtime="20200906 13:58:07.596"></status>
+</kw>
+<status status="PASS" starttime="20200906 13:58:01.960" endtime="20200906 13:58:07.597"></status>
+</kw>
+<doc>TMT1-AC3
+Is the user prevented to log into the App with a badly formatted email address
+and is there a descriptive error message?</doc>
+<tags>
+<tag>authentication</tag>
+<tag>error_handling</tag>
+<tag>TMT-1</tag>
+</tags>
+<status status="PASS" starttime="20200906 13:58:01.959" endtime="20200906 13:58:07.597" critical="yes"></status>
+</test>
+<test id="s1-t4" name="It Is Not Possible To Log In Using A Wrong Password">
+<kw name="It Should Not Be Possible To Log In Using A Wrong Password" library="authentication_resource">
+<kw name="Login Using Credentials" library="common">
+<arguments>
+<arg>${TEST_USER}</arg>
+<arg>bad_password</arg>
+</arguments>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20200906 13:58:07.602" level="INFO">Typing text 'testuser@test.com' into text field '//android.widget.EditText[@password = 'false']'</msg>
+<status status="PASS" starttime="20200906 13:58:07.600" endtime="20200906 13:58:08.571"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200906 13:58:08.573" level="INFO">Typing text 'bad_password' into text field '//android.widget.EditText[@password = 'true']'</msg>
+<status status="PASS" starttime="20200906 13:58:08.571" endtime="20200906 13:58:10.086"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${LOG_IN_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200906 13:58:10.090" level="INFO">Clicking element '//android.widget.TextView[contains(@text, 'Log In')]'.</msg>
+<status status="PASS" starttime="20200906 13:58:10.087" endtime="20200906 13:58:11.028"></status>
+</kw>
+<status status="PASS" starttime="20200906 13:58:07.600" endtime="20200906 13:58:11.028"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>${WELCOME_PAGE_TEXT}</arg>
+</arguments>
+<status status="PASS" starttime="20200906 13:58:11.028" endtime="20200906 13:58:11.315"></status>
+</kw>
+<kw name="Page Should Contain Element" library="AppiumLibrary">
+<doc>Verifies that current page contains `locator` element.</doc>
+<arguments>
+<arg>${BAD_PASSWORD_ERROR_MESSAGE}</arg>
+</arguments>
+<msg timestamp="20200906 13:58:11.690" level="INFO">Current page contains element '//android.widget.TextView[contains(@text, 'The password is invalid')]'.</msg>
+<status status="PASS" starttime="20200906 13:58:11.316" endtime="20200906 13:58:11.690"></status>
+</kw>
+<kw name="Capture Timestamped Screenshot With Test Name" library="HelperLibrary">
+<msg timestamp="20200906 13:58:12.081" level="INFO">Writing C:\Users\tnica\Desktop\Thesis\mobile-testing\output\06-Sep-2020_13-58-11_It_Is_Not_Possible_To_Log_In_Using_A_Wrong_Password.png as Objective Evicence.</msg>
+<status status="PASS" starttime="20200906 13:58:11.690" endtime="20200906 13:58:12.081"></status>
+</kw>
+<status status="PASS" starttime="20200906 13:58:07.599" endtime="20200906 13:58:12.082"></status>
+</kw>
+<doc>TMT1-AC4
+Is the user prevented to log into the App with a wrong password
+and is there a descriptive error message?</doc>
+<tags>
+<tag>authentication</tag>
+<tag>error_handling</tag>
+<tag>TMT-1</tag>
+</tags>
+<status status="PASS" starttime="20200906 13:58:07.598" endtime="20200906 13:58:12.083" critical="yes"></status>
+</test>
+<kw name="Close Application" library="AppiumLibrary" type="teardown">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" starttime="20200906 13:58:12.086" endtime="20200906 13:58:12.787"></status>
+</kw>
+<doc>User Story: TMT-1
+As a User,
+I want to be able to input my credentials,
+So that I can log into the App</doc>
+<status status="PASS" starttime="20200906 13:57:26.231" endtime="20200906 13:58:12.787"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0">Critical Tests</stat>
+<stat pass="4" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="4" fail="0">authentication</stat>
+<stat pass="3" fail="0">error_handling</stat>
+<stat pass="4" fail="0">TMT-1</stat>
+</tag>
+<suite>
+<stat pass="4" fail="0" id="s1" name="Authentication">Authentication</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20200906 13:57:29.878" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002674F5893C8&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /wd/hub/session</msg>
+</errors>
+</robot>

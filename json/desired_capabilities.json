@@ -1,0 +1,8 @@
+{
+    "deviceName": "Galaxy A20",
+    "platformName": "android",
+    "platformVersion": "9",
+    "automationName": "UIAutomator2",
+    "appPackage": "com.timedemo.mmproject",
+    "appActivity": "host.exp.exponent.MainActivity"
+}
